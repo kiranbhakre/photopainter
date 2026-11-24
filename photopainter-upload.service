@@ -1,0 +1,15 @@
+[Unit]
+Description=PhotoPainter web upload page
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=kiran
+WorkingDirectory=/home/kiran/e-Paper/photopainter
+ExecStart=/usr/bin/python3 /home/kiran/e-Paper/photopainter/webupload.py /home/kiran/photos_ready 8080
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
