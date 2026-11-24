@@ -124,6 +124,7 @@ button.del { background: none; border: 1px solid #c33; color: #c33; border-radiu
     <label>Sharpness <input type="range" id="enh-sharpness" min="0" max="3.0" step="0.1" value="{{ sharpness }}"> <span id="enh-sharpness-val">{{ sharpness }}</span></label>
   </div>
   <div id="crop-actions">
+    <button id="crop-rotate" type="button">Rotate 90&deg;</button>
     <button id="crop-save" type="button">Save to frame</button>
     <button id="crop-cancel" type="button">Cancel</button>
   </div>
@@ -194,6 +195,10 @@ fileInput.addEventListener('change', function () {
       background: false
     });
   };
+});
+
+document.getElementById('crop-rotate').addEventListener('click', function () {
+  if (cropper) cropper.rotate(90);
 });
 
 document.getElementById('crop-cancel').addEventListener('click', function () {
